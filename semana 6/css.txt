@@ -1,0 +1,43 @@
+// 1. Variables
+@color-principal: blue;
+@color-secundario: green;
+@tamano-texto: 16px;
+
+// 2. Mixin
+.borde-redondeado(@radio: 8px) {
+  border-radius: @radio;
+}
+
+// 3. Anidamiento
+.container {
+  padding: 10px;
+  background: lightgray;
+
+  .header {
+    background: @color-principal;
+    color: white;
+    padding: 10px;
+    .borde-redondeado();
+
+    .nav {
+      margin-top: 10px;
+
+      a {
+        color: white;
+        font-size: @tamano-texto;
+        background: @color-secundario;
+        padding: 5px;
+        text-decoration: none;
+        .borde-redondeado(5px);
+      }
+    }
+  }
+}
+
+// 4. Reutilización del mixin en otro elemento
+.boton {
+  background: @color-secundario;
+  color: white;
+  padding: 8px;
+  .borde-redondeado();
+}
